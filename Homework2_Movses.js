@@ -103,10 +103,17 @@ function exercise10_1 (array) {
 
 // Option 2
 function exercise10_2 (array) {
-    let max=Math.max(null,array)
+    let max=Math.max.apply(null,array)
+
+    for (let i = 0; i <array.length ; i++) {
+        if (array[i]===max){
+            array.splice(i,1);
+            i--;
+        }
+    }
+    max=Math.max.apply(null,array)
 
     array.splice(array.indexOf(max), 1)
-    max=Math.max(null,array)
     return max
 }
 
