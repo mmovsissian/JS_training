@@ -80,41 +80,48 @@ function exercise9 (a,b,num) {
 
 // Ex10
 // Given an array of numbers. Find the index of the second maximum element.
+// used spread operator in the second option
 
 // Option 1
 function exercise10_1 (array) {
-    let max=array[0]
+    let arr=[]
     for (let i = 0; i <array.length ; i++) {
-        if (array[i]>max){max=array[i]}
+        arr[i]=array[i]
     }
 
-    for (let i = 0; i <array.length ; i++) {
-        if (array[i]===max){
-            array.splice(i,1);
+    let max=arr[0]
+
+    for (let i = 0; i <arr.length ; i++) {
+        if (arr[i]>max){max=arr[i]}
+    }
+
+    for (let i = 0; i <arr.length ; i++) {
+        if (arr[i]===max){
+            arr.splice(i,1);
             i--;
         }
     }
-    max=array[0]
-    for (let i = 0; i <array.length ; i++) {
-        if (array[i]>max){max=array[i]}
+    max=arr[0]
+    for (let i = 0; i <arr.length ; i++) {
+        if (arr[i]>max){max=arr[i]}
     }
-    return max
+    return array.indexOf(max)
 }
 
 // Option 2
 function exercise10_2 (array) {
-    let max=Math.max.apply(null,array)
+    let arr=[...array]
+    let max=Math.max.apply(null,arr)
 
-    for (let i = 0; i <array.length ; i++) {
-        if (array[i]===max){
-            array.splice(i,1);
+    for (let i = 0; i <arr.length ; i++) {
+        if (arr[i]===max){
+            arr.splice(i,1);
             i--;
         }
     }
-    max=Math.max.apply(null,array)
+    max=Math.max.apply(null,arr)
 
-    array.splice(array.indexOf(max), 1)
-    return max
+    return array.indexOf(max)
 }
 
 
@@ -126,9 +133,9 @@ function exercise10_2 (array) {
 
 // used spread syntax
 function exercise11 (array, pad, repeat) {
-    start = [];
-    end = [];
-    len=array.length
+    let start = [];
+    let end = [];
+    let len=array.length
 
     if (pad > array.length) {
         return "Invalid padding amount"
