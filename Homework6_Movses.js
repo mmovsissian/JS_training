@@ -23,13 +23,13 @@ function exercise1(array) {
 function exercise2(array) {
     let sum = 0
     for (let i = 0; i < array.length; i++) {
-        if (array[i] % 2 == 0)
-            sum += Math.pow(array[i], 2)
+        if (Math.sqrt(array[i]) % 2 == 0)
+            sum += array[i]
     }
     return sum
 }
 
-// console.log(exercise2([1,2,3,4,25]))
+// console.log(exercise2([1,2,3,4,25,16]))
 
 
 // Ex 3
@@ -59,5 +59,5 @@ function exercise4(word, list) {
     return result
 }
 
-console.log(exercise4("listen", ["enlists", "google", "inlets", "banana"]))
-console.log(exercise4("pencil", ["licnep", "circular", "pupil", "nilcpe", "leppnec"]))
+// console.log(exercise4("listen", ["enlists", "google", "inlets", "banana"]))
+// console.log(exercise4("pencil", ["licnep", "circular", "pupil", "nilcpe", "leppnec"]))
